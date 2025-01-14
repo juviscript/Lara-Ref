@@ -27,6 +27,7 @@ return new class extends Migration
             $table->text('body_html');
             $table->foreignId('user_id')->constrained();
             $table->foreignId('status_id')->constrained();
+            $table->foreignId('folder_id')->constrained();
             $table->smallInteger('version');
             $table->boolean('require_acknowledgements');
             $table->timestamps();

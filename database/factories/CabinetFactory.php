@@ -21,4 +21,10 @@ class CabinetFactory extends Factory
             'description' => fake()->sentence()
         ];
     }
+
+    public function configure(): static {
+        return $this->afterCreating(function () {
+            echo "Created some pretty cool cabinets.";
+        });
+    }
 }

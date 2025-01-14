@@ -26,7 +26,8 @@ class Article extends Model
         'version',
         'require_acknowledgement',
         'user_id',
-        'status_id'
+        'status_id',
+        'folder_id'
     ];
 
     protected function casts(): array
