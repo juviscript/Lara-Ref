@@ -25,9 +25,6 @@ class Article extends Model
         'body_html',
         'version',
         'require_acknowledgement',
-        'user_id',
-        'status_id',
-        'folder_id'
     ];
 
     protected function casts(): array
@@ -42,7 +39,7 @@ class Article extends Model
         ];
     }
 
-    public function author(): BelongsTo {
+    public function user(): BelongsTo {
         return $this->belongsTo(User::class);
     }
 

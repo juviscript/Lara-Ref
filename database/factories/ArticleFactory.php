@@ -3,6 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+use App\Models\Folder;
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Article>
@@ -31,7 +34,9 @@ class ArticleFactory extends Factory
             'body_text' => fake()->paragraphs(3, true),
             'body_html' => fake()->randomHtml(),
             'require_acknowledgements' => false,
-            'status_id' => 1
+            'status_id' => 1,
+            'user_id' => User::inRandomOrder()->first()->id,
+            'folder_id' => Folder::inRandomOrder()->first()->id
         ];
     }
 }

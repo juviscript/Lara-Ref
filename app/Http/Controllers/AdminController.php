@@ -52,18 +52,15 @@ class AdminController extends Controller
             ->count(1)
             ->create();
 
-        // Creates 1 User and 3 Articles associated with that User.
-        User::factory()
-            ->has(
-                Article::factory()
-                    ->count(3)
-                    ->sequence([
-                        "folder_id" => Folder::all()->random()->id
-                    ]),
-                'articles'
-            )
-            ->create();
+        User::factory()->count(3)->create();
+        Article::factory()->count(10)->create();
 
+        return view('admin');
+    }
+
+    public static function seedArticlesToDB($num) {
+        Article::factory()->count($num)->create();
+        echo "Created " . $num . " articles!";
         return view('admin');
     }
 }
